@@ -13,15 +13,19 @@ PATH := $(LOCAL)/bin:$(PATH)
 
 # Path to the .traineddata directory with traineddata suitable for training 
 # (for example from tesseract-ocr/tessdata_best). Default: $(LOCAL)/share/tessdata
-TESSDATA =  $(LOCAL)/share/tessdata
+# TESSDATA =  $(LOCAL)/share/tessdata
+# contains amh.traineddata downloaded from tesseract-ocr/tessdata_best
+TESSDATA =  tessdata_best
 
 # Name of the model to be built. Default: $(MODEL_NAME)
-MODEL_NAME = foo
+MODEL_NAME = amh-old
 
 # Data directory for output files, proto model, start model, etc. Default: $(DATA_DIR)
 DATA_DIR = data
 
 # Data directory for langdata (downloaded from Tesseract langdata repo). Default: $(LANGDATA_DIR)
+# Contains: All the data in the `amh` directory, unicharset/xheights files for Ethiopic script and
+# 		the remaining non-lang-specific files in the top-level directory, such as `font_properties.`
 LANGDATA_DIR = $(DATA_DIR)/langdata
 
 # Output directory for generated files. Default: $(OUTPUT_DIR)
@@ -39,8 +43,8 @@ NUMBERS_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).numbers
 # Optional Punc file for Punctuation dawg. Default: $(PUNC_FILE)
 PUNC_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).punc
 
-# Name of the model to continue from. Default: '$(START_MODEL)'
-START_MODEL =
+# Name of the model to continue from. Default: '$(START_MODEL)
+START_MODEL = amh
 
 LAST_CHECKPOINT = $(OUTPUT_DIR)/checkpoints/$(MODEL_NAME)_checkpoint
 
@@ -72,6 +76,7 @@ endif
 NET_SPEC := [1,36,0,1 Ct3,3,16 Mp3,3 Lfys48 Lfx96 Lrx96 Lfx192 O1c\#\#\#]
 
 # Language Type - Indic, RTL or blank. Default: '$(LANG_TYPE)'
+# ????????
 LANG_TYPE ?=
 
 # Normalization mode - 2, 1 - for unicharset_extractor and Pass through Recoder for combine_lang_model
