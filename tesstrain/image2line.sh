@@ -40,4 +40,4 @@ done
 # rename generated text file from *.txt to *.gt.txt
 rename s/exp0.txt/exp0.gt.txt/ ./images/*exp0.txt
 
-echo "Image files converted to tif. Correct the ground truth files and then run ocr-d train to create box and lstmf files"
+echo "Image files converted to tif. Check/Correct the text files for erros before starting training."
