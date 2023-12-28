@@ -3,14 +3,18 @@
 # to be used after OCR'ing an image, writing output to txt file & verifying each line
 # output files will be used for training along with corresponding .tif images
 
-# list of file names of pages with verified text content
+# list of file names with verified text content to be split into lines
+# file names mustbcontain only one `-`, and ends with `-output.txt`
 file_names = ['k_Page_1-output.txt', 'k_Page_2-output.txt', 'k_Page_3-output.txt', 'k_Page_4-output.txt']
+
+# directory of the above input files
+input_dir = '.'
 
 # directory of output text files
 out_dir = 'data/amh-old-ground-truth'
 
 for file_name in file_names:
-    with open(file_name, 'r', encoding='utf-8') as file:
+    with open('{}/{}'.format(input_dir, file_name), 'r', encoding='utf-8') as file:
         # match corresponding line image file name. eg of image name - `k_Page_1-001.exp0.tif`
         out_base = file_name.split('-')[0] + '-0{}.exp0.gt.txt'
 
