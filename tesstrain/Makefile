@@ -15,7 +15,7 @@ PATH := $(LOCAL)/bin:$(PATH)
 # (for example from tesseract-ocr/tessdata_best). Default: $(LOCAL)/share/tessdata
 # TESSDATA =  $(LOCAL)/share/tessdata
 # contains amh.traineddata downloaded from tesseract-ocr/tessdata_best
-TESSDATA =  tessdata_best
+TESSDATA =  $(DATA_DIR)/tessdata
 
 # Name of the model to be built. Default: $(MODEL_NAME)
 MODEL_NAME = amh-old
