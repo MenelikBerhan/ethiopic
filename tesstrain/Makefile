@@ -35,13 +35,16 @@ OUTPUT_DIR = $(DATA_DIR)/$(MODEL_NAME)
 GROUND_TRUTH_DIR := $(OUTPUT_DIR)-ground-truth
 
 # Optional Wordlist file for Dictionary dawg. Default: $(WORDLIST_FILE)
-WORDLIST_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).wordlist
+# WORDLIST_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).wordlist
+WORDLIST_FILE := $(LANGDATA_DIR)/amh.wordlist
 
 # Optional Numbers file for number patterns dawg. Default: $(NUMBERS_FILE)
-NUMBERS_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).numbers
+# NUMBERS_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).numbers
+NUMBERS_FILE := $(LANGDATA_DIR)/amh.numbers
 
 # Optional Punc file for Punctuation dawg. Default: $(PUNC_FILE)
-PUNC_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).punc
+# PUNC_FILE := $(OUTPUT_DIR)/$(MODEL_NAME).punc
+PUNC_FILE := $(LANGDATA_DIR)/amh.punc
 
 # Name of the model to continue from. Default: '$(START_MODEL)
 START_MODEL = amh
