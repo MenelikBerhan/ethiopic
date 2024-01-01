@@ -18,7 +18,7 @@ PATH := $(LOCAL)/bin:$(PATH)
 TESSDATA =  $(DATA_DIR)/tessdata
 
 # Name of the model to be built. Default: $(MODEL_NAME)
-MODEL_NAME = amh-old
+MODEL_NAME = amh-dict
 
 # Data directory for output files, proto model, start model, etc. Default: $(DATA_DIR)
 DATA_DIR = data
