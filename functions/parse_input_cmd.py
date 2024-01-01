@@ -96,7 +96,7 @@ def parse_default_cmd(line):
 
     parser.add_argument('-td', '--training-dir', dest='training_dir', required=False, nargs=1, metavar='training_dir_default', help='Set default tesseract training data directory')
 
-    parser.add_argument('-tl', '--lang', dest='lang', required=False, nargs=1, choices=['amh', 'eng', 'amh-old', 'tir'], metavar='language_default', help='Set default tesseract OCR language')
+    parser.add_argument('-tl', '--lang', dest='lang', required=False, nargs=1, choices=['amh', 'eng', 'amh-old', 'tir', 'amh-old1', 'amh-dict', 'amh-dict1'], metavar='language_default', help='Set default tesseract OCR language')
 
     parser.add_argument('-tp', '--psm', dest='psm', required=False, nargs=1,  type=int,choices=list(range(14)), metavar='psm_default', help='Set default tesseract page segmentation mode')
 
