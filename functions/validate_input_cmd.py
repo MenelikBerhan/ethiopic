@@ -205,18 +205,19 @@ def validate_parsed_ocr_cmd(line, **args):
         'output_file': output_file,
         'output_mode': output_mode,
         'verbose': verbose,
-        'display_confidence': display_confidence
+        'display_confidence': display_confidence,
+        'lang': args.get('lang', tesseract_dict.get('lang_def'))
         }
 
     """
     BY NOW: (changed attrs in args)
         input_file_type: image|pdf
-        inputs: list of input files (from input_file/s or input_directory)
+        input_files: list of input files (from input_file/s or input_directory)
         input_directory: None if path in inputs (passed or default)
 
         output_mode: From -m/output_file, or default
         output_file: string/None (un altered)
-        output_dir: None if path in output_file (passed or default)
+        output_directory: None if path in output_file (passed or default)
 
         join: set to True if output_file. (else unaltered)
     """
