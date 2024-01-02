@@ -46,7 +46,7 @@ def ocr_pdf(**args):
             pdf_end = path.splitext(in_pdf)[0]  # before extension
             pdf_end = path.split(pdf_end)[1]     # after last '/'
             output_file += pdf_end + '-'
-        output_file += 'joined_output.' + output_mode
+        output_file += '{}-joined_output.'.format(args.get('lang')) + output_mode
 
     # set output file path if output file
     output_file_path = output_path_prefix + output_file if output_file else None
@@ -79,7 +79,7 @@ def ocr_pdf(**args):
         if not output_file and output_mode != 'print':
             output_file_end = path.splitext(pdf_file_path)[0]  # before extension
             output_file_end = path.split(output_file_end)[1]     # after last '/'
-            output_file_end += '-output.' + output_mode
+            output_file_end += '-{}-output.'.format(args.get('lang')) + output_mode
             output_file_path = output_path_prefix + output_file_end
 
         # to check if this is last pdf for join. used to set save to True

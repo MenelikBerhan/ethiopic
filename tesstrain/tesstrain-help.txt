@@ -1,0 +1,57 @@
+usage: tesstrain [-h] [--fontlist FONTS [FONTS ...]]
+                 [--vertical_fontlist VERTICAL_FONTS [VERTICAL_FONTS ...]]
+                 [--fonts_dir FONTS_DIR] [--tmp_dir TMP_DIR]
+                 [--lang LANG_CODE] [--langdata_dir DATADIR]
+                 [--maxpages MAX_PAGES] [--output_dir OUTPUTDIR] [--overwrite]
+                 [--save_box_tiff] [--linedata_only]
+                 [--training_text TEXTFILE] [--wordlist WORDFILE]
+                 [--extract_font_properties] [--noextract_font_properties]
+                 [--distort_image] [--tessdata_dir TESSDATADIR]
+                 [--exposures EXPOSURES [EXPOSURES ...]] [--ptsize PT_SIZE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --fontlist FONTS [FONTS ...]
+                        A list of fontnames to train on.
+  --vertical_fontlist VERTICAL_FONTS [VERTICAL_FONTS ...]
+                        A list of fontnames to render vertical text.
+  --fonts_dir FONTS_DIR
+                        Path to font files.
+  --tmp_dir TMP_DIR     Path to temporary training directory.
+  --lang LANG_CODE      ISO 639 code.
+  --langdata_dir DATADIR
+                        Path to tesseract/training/langdata directory.
+  --maxpages MAX_PAGES
+  --output_dir OUTPUTDIR
+                        Location of output traineddata file.
+  --overwrite           Safe to overwrite files in output_dir.
+  --save_box_tiff       Save box/tiff pairs along with lstmf files.
+  --linedata_only       Only generate training data for lstmtraining.
+  --extract_font_properties
+  --noextract_font_properties
+  --distort_image
+  --exposures EXPOSURES [EXPOSURES ...]
+                        A list of exposure levels to use (e.g. -1,0,1).
+  --ptsize PT_SIZE      Size of printed text.
+
+inputdata:
+  OPTIONAL flags for input data. If unspecified we will look for them in the
+  langdata_dir directory.
+
+  --training_text TEXTFILE
+                        Text to render and use for training.
+  --wordlist WORDFILE   Word list for the language ordered by decreasing
+                        frequency.
+
+tessdata:
+  OPTIONAL flag to specify location of existing traineddata files, required
+  during feature extraction. If unspecified will use TESSDATA_PREFIX defined
+  in the current environment.
+
+  --tessdata_dir TESSDATADIR
+                        Path to tesseract/tessdata directory.
+
+The font names specified in --fontlist need to be recognizable by Pango using
+fontconfig. An easy way to list the canonical names of all fonts available on
+your system is to run text2image with --list_available_fonts and the
+appropriate --fonts_dir path.

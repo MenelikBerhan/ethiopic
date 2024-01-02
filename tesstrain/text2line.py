@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# writes each line of text files to a separate txt file.
+# to be used after OCR'ing an image, writing output to txt file & verifying each line
+# output files will be used for training along with corresponding .tif images
+
+# list of file names with verified text content to be split into lines
+# file names mustbcontain only one `-`, and ends with `-output.txt`
+file_names = ['k_Page_1-output.txt', 'k_Page_2-output.txt', 'k_Page_3-output.txt', 'k_Page_4-output.txt']
+
+# directory of the above input files
+input_dir = '.'
+
+# directory of output text files
+out_dir = 'data/amh-old-ground-truth'
+
+for file_name in file_names:
+    with open('{}/{}'.format(input_dir, file_name), 'r', encoding='utf-8') as file:
+        # match corresponding line image file name. eg of image name - `k_Page_1-001.exp0.tif`
+        out_base = file_name.split('-')[0] + '-0{}.exp0.gt.txt'
+
+        line_no = 0
+        for line in file:
+            line_no += 1
+            # add leading zero to output file name
+            out_name = out_base.format('0' + str(line_no) if line_no < 10 else line_no)
+            with open('{}/{}'.format(out_dir, out_name), 'x', encoding='utf-8') as out:
+                out.write(line.strip('\n')) # remove newline at end
