@@ -155,10 +155,11 @@ def validate_parsed_ocr_cmd(line, **args):
     # Check if inputs exist (in input_dir if no path in inputs)
     prefix = '' if path_in_inputs else input_directory
     prefix += '/' if prefix and prefix[-1] != '/' else ''
+
+    # if $ in input files expand it from shell vars
+    inputs = [path.expandvars(inp) if '$' in inp else inp for inp in inputs]
+
     for inp in inputs:
-        # if $ in input file expand it from shell vars
-        if '$' in inp:
-            inp = path.expandvars(inp)
         if not path.exists(prefix + inp):
             print("*** Input Error: input file '{}' does not exist".format(prefix + inp))
             return (None)
