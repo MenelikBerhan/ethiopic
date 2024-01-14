@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import pytesseract as pts
-from os import path
+from os import path, remove
 from statistics import mean
 from .confidence import ocr_confidence
 from .output_to_docx import write_to_docx
@@ -92,6 +92,18 @@ def ocr_image(**args):
             output_file_end = path.split(output_file_end)[1]     # after last '/'
             output_file_end += '-output.' + output_mode
             output_file_path = output_path_prefix + output_file_end
+
+        # check if file with same name as output file already exists
+        # prompt to remove old file or add 'new' to new output file name
+        if output_mode != 'print' and path.exists(output_file_path):
+            print("File with same name as output file '{}' exists.".format(output_file_path))
+            user_response = input("Input 'd' to delete file or 'new' will be added to new output file name: ")
+            if user_response.lower() == 'd':
+                remove(output_file_path)
+            else:
+                while(path.exists(output_file_path)):
+                    base, ext = path.splitext(output_file_path)
+                    output_file_path = base + '-new' + ext
 
         # to be added after each page if join
         footer = '\n\t\t\t\t\t--- Page {} ---\n\n'.format(i + 1) if join else ''
