@@ -16,7 +16,10 @@ __Implemented and Tested on Ubuntu 20.04 with Python 3.8__
 
 ```
 sudo apt update
+# (optional) for version 5.* add this repository
+sudo add-apt-repository ppa:alex-p/tesseract-ocr-devel
 sudo apt install -y tesseract-ocr
+sudo apt update
 ```
 
 #### Clone the repo

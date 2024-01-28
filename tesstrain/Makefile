@@ -18,7 +18,7 @@ PATH := $(LOCAL)/bin:$(PATH)
 TESSDATA =  $(DATA_DIR)/tessdata
 
 # Name of the model to be built. Default: $(MODEL_NAME)
-MODEL_NAME = amh-old3
+MODEL_NAME = amh-math
 
 # Data directory for output files, proto model, start model, etc. Default: $(DATA_DIR)
 DATA_DIR = data
@@ -47,7 +47,7 @@ NUMBERS_FILE := $(LANGDATA_DIR)/$(MODEL_NAME).numbers
 PUNC_FILE := $(LANGDATA_DIR)/$(MODEL_NAME).punc
 
 # Name of the model to continue from. Default: '$(START_MODEL)
-START_MODEL = amh
+START_MODEL = amh-old3
 
 LAST_CHECKPOINT = $(OUTPUT_DIR)/checkpoints/$(MODEL_NAME)_checkpoint
 

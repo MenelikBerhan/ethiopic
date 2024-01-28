@@ -5,13 +5,13 @@
 
 # list of file names with verified text content to be split into lines
 # file names mustbcontain only one `-`, and ends with `-output.txt`
-file_names = ['k_Page_1-output.txt', 'k_Page_2-output.txt', 'k_Page_3-output.txt', 'k_Page_4-output.txt']
+file_names = ['math_book_Page_1-output.txt', 'math_book_Page_2-output.txt', 'math_book_Page_3-output.txt']
 
 # directory of the above input files
-input_dir = '.'
+input_dir = './texts'
 
 # directory of output text files
-out_dir = 'data/amh-old-ground-truth'
+out_dir = 'data/amh-math-ground-truth'
 
 for file_name in file_names:
     with open('{}/{}'.format(input_dir, file_name), 'r', encoding='utf-8') as file:
